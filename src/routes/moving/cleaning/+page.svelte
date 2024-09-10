@@ -1,6 +1,6 @@
 <script>
   import Header from "$lib/header.svelte";
-  import Footer from "$lib/Footer.svelte";
+  import Footer from "$lib/footer.svelte";
 
   import TimePill from "$lib/TimePill.svelte";
   import HeadlineCard from "$lib/HeadlineCard.svelte";
