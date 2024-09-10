@@ -10,7 +10,6 @@
   import CustomCard from "$lib/CustomCard.svelte";
   import Calendar from "$lib/Calendar.svelte";
 
-  import Stepper from "$lib/Stepper.svelte";
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
