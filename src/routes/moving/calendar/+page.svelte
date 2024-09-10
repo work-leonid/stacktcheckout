@@ -1,5 +1,5 @@
 <script>
-  import Header from "$lib/Header.svelte";
+  import Header from "$lib/header.svelte";
   import Footer from "$lib/Footer.svelte";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
