@@ -6,9 +6,9 @@
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
   import CalendarWithTimeIntervals from "$lib/CalendarWithTimeIntervals.svelte";
-  import SimpleWrapper from "$lib/SimpleWrapper.svelte";
   import Calendar from "$lib/Calendar.svelte";
   import Timepill from "$lib/TimePill.svelte";
+  import SimpleWrapper from "$lib/SimpleWrapper.svelte";
 
   let itemCount = 1; // Track the stepper count
   let totalPrice = 0; // Initialize total price
