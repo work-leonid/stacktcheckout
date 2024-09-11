@@ -1,5 +1,5 @@
 <script>
-  import NavBtns from "$lib/NavBtns.svelte";
+  import NavBtns from "$lib/navbtns.svelte";
   export let options = []; // Array of card options
   export let selectedOption = null; // Allow two-way binding for selected option
   export let slotPosition = null; // Position where the content will be shown
@@ -19,17 +19,17 @@
     <div>
       <!-- Card -->
       <div
-        class={`p-3 sm:p-4 md:p-6 relative ring-1 transition-all duration-300 rounded-2xl sm:rounded-2xl ${
+        class={`p-3 border sm:p-4 sm:pt-0 relative cursor-default transition-all duration-300 rounded-2xl sm:rounded-2xl ${
           selectedOption === option.title
-            ? "bg-white ring-1 ring-orange-500"
-            : "bg-white hover:ring-orange-500 ring-slate-300"
+            ? "bg-white  border-orange-500 ring-4 ring-orange-500/20"
+            : "bg-white hover:border-orange-500 ring-slate-300"
         }`}
         on:click={() => selectOption(option.title, index)}
       >
         <div
-          class={`sticky top-0 bg-white/90 backdrop-blur-md ${selectedOption === option.title ? "border-b pb-4 border-b-slate-200" : ""}`}
+          class={`sticky top-0 z-40 bg-white/90 backdrop-blur-md ${selectedOption === option.title ? "border-b pb-4 border-b-slate-200" : ""}`}
         >
-          <div class="flex justify-between gap-2 items-baseline">
+          <div class="flex justify-between sm:pt-4 gap-2 items-baseline">
             <h3
               class={`font-semibold text-base sm:text-xl text-balance leading-tight ${
                 selectedOption === option.title ? "text-orange-600" : ""
@@ -59,7 +59,7 @@
           </div>
         {/if}
         {#if selectedOption === option.title}
-          <div class="mt-4">
+          <div class="mt-4 sticky bottom-2">
             <NavBtns {nextAction} {prevAction} />
           </div>
         {/if}

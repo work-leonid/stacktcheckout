@@ -16,14 +16,14 @@
           </h3>
         {/if}
         {#if subheadline}
-          <p class="text-sm leading-tight">{subheadline}</p>
+          <p class="text-base">{subheadline}</p>
         {/if}
       </div>
 
       {#if benefits.length > 0}
         <ul class="flex mt-2 flex-col gap-1.5">
           {#each benefits as benefit}
-            <li class="flex gap-1 leading-tight items-center">
+            <li class="flex gap-1 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -43,7 +43,11 @@
       {/if}
     </div>
     {#if image}
-      <img src={image} alt={altText} class="size-36 hidden sm:block ml-auto" />
+      <img
+        src={image}
+        alt={altText}
+        class="size-36 sm:size-56 hidden sm:block ml-auto"
+      />
     {/if}
   </div>
 </div>

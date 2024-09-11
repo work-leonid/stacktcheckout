@@ -17,16 +17,16 @@
 <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
   {#each options as option}
     <div
-      class={`p-4 ring-1 cursor-pointer transition-all duration-300 rounded-2xl ${
+      class={`p-4 border cursor-pointer transition-all duration-300 rounded-2xl ${
         selectedOptions.includes(option.title)
-          ? "bg-orange-50 ring-orange-300"
-          : "bg-white hover:ring-orange-500 ring-slate-300"
+          ? "bg-orange-50 ring-4 border-orange-500 ring-orange-500/20"
+          : "bg-white hover:border-orange-500 ring-slate-300"
       }`}
       on:click={() => toggleOption(option)}
     >
-      <div class="flex justify-between items-center">
+      <div class="flex gap-3 justify-between items-center">
         <div class="flex gap-4 justify-between items-center">
-          <div class="w-full">
+          <div class="w-full flex flex-col gap-1">
             <h3
               class={`font-semibold leading-tight ${
                 selectedOptions.includes(option.title) ? "text-orange-600" : ""
@@ -34,20 +34,20 @@
             >
               {option.title}
             </h3>
-            <p class="font-semibold text-orange-600 shrink-0">
-              {option.price}
-            </p>
 
             <!-- Conditionally show description if it's not empty -->
             {#if option.description && option.description.trim() !== ""}
               <p
-                class={`text-slate-500 leading-tight text-xs ${
+                class={`text-slate-500 leading-tight text-sm ${
                   selectedOptions.includes(option.title) ? "text-slate-900" : ""
                 }`}
               >
                 {option.description}
               </p>
             {/if}
+            <p class="font-semibold text-orange-600 shrink-0">
+              {option.price}
+            </p>
           </div>
         </div>
         <!-- Add "+" button or check icon based on selection -->

@@ -16,10 +16,12 @@
   }
 </script>
 
-<div class="flex max-w-64 items-center gap-1">
+<div
+  class="flex p-1 border border-orange-200 bg-white rounded-xl max-w-36 sm:w-full sm:max-w-xs items-center gap-1"
+>
   <button
     on:click={decrement}
-    class="px-5 py-2 inline-flex items-center disabled:bg-slate-50 disabled:text-slate-300 active:scale-90 active:inner-shadow disabled:cursor-not-allowed rounded-full bg-orange-200/70 text-orange-600 hover:bg-orange-200 transition-all duration-300"
+    class="py-2 px-3 inline-flex items-center disabled:bg-white disabled:text-orange-200/80 active:scale-90 active:inner-shadow disabled:cursor-not-allowed rounded-lg text-orange-600 hover:bg-orange-100 transition-all duration-300"
     disabled={count <= min}
   >
     <svg
@@ -33,13 +35,14 @@
   </button>
 
   <span
-    class="font-semibold bg-white py-1 rounded-full proportional-nums min-w-16 sm:min-w-24 text-center ring-1 ring-slate-200 text-lg"
-    >{count}</span
+    class={`font-semibold py-1 rounded-full proportional-nums grow text-center text-lg ${
+      count === 0 ? " text-orange-200/80" : ""
+    }`}>{count}</span
   >
 
   <button
     on:click={increment}
-    class="px-5 py-2 inline-flex items-center disabled:bg-slate-50 disabled:text-slate-300 active:scale-90 active:inner-shadow disabled:cursor-not-allowed rounded-full bg-orange-200/70 text-orange-600 hover:bg-orange-200 transition-all duration-300"
+    class="py-2 px-3 inline-flex items-center disabled:bg-slate-100 disabled:text-slate-300 active:scale-90 active:inner-shadow disabled:cursor-not-allowed rounded-lg text-orange-600 hover:bg-orange-100 transition-all duration-300"
     disabled={count >= max}
   >
     <svg

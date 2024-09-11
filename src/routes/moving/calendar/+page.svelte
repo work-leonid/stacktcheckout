@@ -1,112 +1,29 @@
 <script>
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
+  import NavBtns from "$lib/navbtns.svelte";
 
-  import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithStepper from "$lib/CardWithStepper.svelte";
-  import CardWithContent from "$lib/SingleSelectCardWithSlot.svelte";
-  import CustomCard from "$lib/CustomCard.svelte";
-  import SingleSelectCardWithoutSlot from "$lib/SingleSelectCardWithoutSlot.svelte";
-  import MonthPicker from "$lib/MonthPicker.svelte";
+  import HeadlineCard from "$lib/headlinecard.svelte";
   import { goto } from "$app/navigation";
+  import CalendarWithTimeIntervals from "$lib/calendarwithtimeintervals.svelte";
+  import Simplewrapper from "$lib/simplewrapper.svelte";
+  import Calendar from "$lib/calendar.svelte";
+  import Timepill from "$lib/timepill.svelte";
 
   let itemCount = 1; // Track the stepper count
   let totalPrice = 0; // Initialize total price
   $: totalPrice = itemCount === 0 ? 0 : 179 + (itemCount - 1) * 42;
 
-  let multiselectedOptions = [];
   let currentPrice = "Total £99";
 
   function goToNextPage() {
-    goto("/moving/cleaning");
+    goto("/moving/address");
   }
   function goToPreviousPage() {
-    goto("/moving/flat");
+    goto("/moving/storagecollection");
   }
 
-  const additionalServices = [
-    {
-      title: "Storage collection",
-      description:
-        "Get rid of unwanted items! The longer you store, the more you save.",
-      price: "£169",
-    },
-  ];
-  const storagePlaces = [
-    {
-      title: "Various items",
-      description: "3x3x8 ft",
-      price: "£11.9/week",
-    },
-    {
-      title: "Wardrobe",
-      description: "5x3x6 ft",
-      price: "£19.9/week",
-    },
-    {
-      title: "Small room",
-      description: "6x4x8 ft",
-      price: "£24.9/week",
-    },
-    {
-      title: "Studio flat",
-      description: "6x6x8 ft",
-      price: "£27.9/week",
-    },
-    {
-      title: "Half of a Garage",
-      description: "8x6x8 ft",
-      price: "£31.9/week",
-    },
-    {
-      title: "Small Office",
-      description: "9x8x8 ft",
-      price: "£45.9/week",
-    },
-    {
-      title: "1-Car Garage",
-      description: "12x8x8 ft",
-      price: "£59.9/week",
-    },
-    {
-      title: "House+",
-      description: "Price per 1 sqft",
-      price: "£0.82/week",
-    },
-  ];
-
-  const packingOptions = [
-    {
-      title: "No, thank you",
-      description: "I'll pack all my items myself",
-      price: "",
-    },
-
-    {
-      title: "Storage collection",
-      description: "Get rid of unwanted items",
-      price: "from £9",
-    },
-  ];
-
-  let dateOptions = [
-    {
-      title: "Monthly",
-      badge: "",
-    },
-    {
-      title: "3 months",
-      badge: "-25%",
-    },
-    {
-      title: "6 months",
-      badge: "-40%",
-    },
-  ];
-  let packingSelectedOption = "Storage collection";
   let slotPosition = 1;
-
-  let monthSelectedOption = "3 months";
 </script>
 
 <!-- Main layout -->
@@ -114,38 +31,33 @@
   <Header price={currentPrice} />
 
   <HeadlineCard
-    headline="Storage collection"
-    subheadline="The longer you store, the more you save."
-    image="/img/packing/bighouse.svg"
+    headline="Moving & cleaning date"
+    subheadline="Please select the date is best for you"
+    image="/img/assembly.svg"
     altText="Packing service"
   />
 
-  <CardWithContent
-    options={packingOptions}
-    bind:selectedOption={packingSelectedOption}
-    bind:slotPosition
-  >
-    {#if packingSelectedOption === "Storage collection"}
-      <CustomCard
-        headline="The longer you store, the more you save"
-        subheadline=""
-        image="/img/packing/bighouse.svg"
-        altText="Packing service"
-      >
-        <MonthPicker options={dateOptions} />
-      </CustomCard>
-    {/if}
-  </CardWithContent>
+  <div class="flex flex-col gap-4">
+    <Simplewrapper title="When you want to move?">
+      <div class="max-w-sm mx-auto">
+        <CalendarWithTimeIntervals />
+      </div>
+    </Simplewrapper>
 
-  {#if packingSelectedOption === "Storage collection"}
-    <div class="flex flex-col gap-2">
-      <h3 class="text-xl font-semibold">How much space do you need?</h3>
-      <SingleSelectCardWithoutSlot
-        options={storagePlaces}
-        bind:monthSelectedOption
-      />
+    <Simplewrapper
+      title="End-of-tentancy cleaning"
+      subheadline="We could clean only empty rooms."
+    >
+      <div class="max-w-sm mx-auto">
+        <Calendar />
+        <Timepill withTabs={false} />
+      </div>
+    </Simplewrapper>
+
+    <div>
+      <NavBtns nextAction={goToNextPage} prevAction={goToPreviousPage} />
     </div>
-  {/if}
+  </div>
 
-  <Footer nextAction={goToNextPage} prevAction={goToPreviousPage} />
+  <Footer />
 </div>

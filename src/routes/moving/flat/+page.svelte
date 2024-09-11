@@ -3,16 +3,14 @@
   import Footer from "$lib/footer.svelte";
   import { goto } from "$app/navigation";
 
-  import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import MultiSelectCard from "$lib/MultiSelectCard.svelte";
-  import CardWithContent from "$lib/SingleSelectCardWithSlot.svelte";
-  import CustomCard from "$lib/CustomCard.svelte";
-  import CalendarWithTimeIntervals from "$lib/CalendarWithTimeIntervals.svelte";
+  import HeadlineCard from "$lib/headlinecard.svelte";
+  import MultiSelectCard from "$lib/multiselectcard.svelte";
+  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
+  import ImageDescription from "$lib/imagedescription.svelte";
 
   let multiselectedOptions = []; // Track the selected options (multi-select)
-  let currentPrice = "Total £99";
+  let currentPrice = "Moving total £169";
 
-  // Function to handle card selection and navigate to packing page if selected
   function goToNextPage() {
     goto("/moving/packing");
   }
@@ -66,6 +64,31 @@
       price: "from £99",
     },
   ];
+  let benefitsMiniMove = [
+    "up to 2 hrs",
+    "max 10 boxes or similar sized items",
+    "up to 25 miles",
+    "2 movers",
+    "1 van",
+  ];
+  let benefits1Bedroom = [
+    "1 van",
+    "2 movers",
+    "max 30 large boxes",
+    "up to 25 miles",
+  ];
+  let benefits2Bedrooms = [
+    "1 van",
+    "3 movers",
+    "max 55 large boxes",
+    "up to 25 miles",
+  ];
+  let benefits3Bedrooms = [
+    "2 vans",
+    "4 movers",
+    "max 75 large boxes",
+    "up to 25 miles",
+  ];
   let selectedOption = "Mini Move"; // Preselect the "Mini Move" option
   let slotPosition = 0;
 </script>
@@ -86,45 +109,51 @@
     bind:slotPosition
   >
     {#if selectedOption === "Mini Move"}
-      <div class="mt-4">
-        <CalendarWithTimeIntervals />
-      </div>
+      <ImageDescription
+        title="The most cost-effective small space moving option not only among other options, but also among competitors."
+        image="/img/moving/mini.svg"
+        benefits={benefitsMiniMove}
+      />
     {/if}
-
     {#if selectedOption === "1 bedroom/Studio"}
-      <div class="mt-4">
-        <CalendarWithTimeIntervals />
-      </div>
+      <ImageDescription
+        title="Our team makes your small move stress-free! Whether it’s a compact
+        space or a cozy home, we handle every detail with care, ensuring your
+        belongings arrive safely at your new place. Quick, efficient, and
+        affordable moving services!"
+        image="/img/moving/1bed.svg"
+        benefits={benefits1Bedroom}
+      />
     {/if}
-
     {#if selectedOption === "2 bedrooms"}
-      <div class="mt-4">
-        <CalendarWithTimeIntervals />
-      </div>
+      <ImageDescription
+        title="Our professional movers are ready to take the hassle out of your move.
+        From packing and loading to transporting and unloading, we provide
+        full-service moving tailored to your needs. Trust us to make your move
+        smooth and seamless!"
+        image="/img/moving/2bed.svg"
+        benefits={benefits2Bedrooms}
+      />
     {/if}
-
     {#if selectedOption === "3 bedrooms"}
-      <div class="mt-4">
-        <CalendarWithTimeIntervals />
-      </div>
+      <ImageDescription
+        title="Our experienced movers ensure every room is packed, transported, and
+        unpacked with precision and care. We handle large moves with ease, so
+        you can focus on settling into your new home. Reliable, professional,
+        and efficient service!"
+        image="/img/moving/3bed.svg"
+        benefits={benefits3Bedrooms}
+      />
     {/if}
 
     {#if selectedOption === "Personalised quote"}
-      <CustomCard
-        headline="Need something special?"
-        subheadline="Select your needs and we'll call you back to arrange your moving and
-                    other services"
-        image="/img/packing/bighouse.svg"
-        altText="Packing service"
-      >
-        <MultiSelectCard
-          options={multiselectOptions}
-          bind:multiselectedOptions
-        />
-      </CustomCard>
-      <div class="mt-4">
-        <CalendarWithTimeIntervals />
-      </div>
+      <p class="mb-4 leading-tight">
+        We’re here to help! Contact us for a personalised quote tailored to your
+        move. Whether it’s a unique request or a custom plan, we’ll ensure you
+        get the best service at the right price. Get in touch today for your
+        bespoke moving solution!
+      </p>
+      <MultiSelectCard options={multiselectOptions} bind:multiselectedOptions />
     {/if}
   </CardWithContent>
 

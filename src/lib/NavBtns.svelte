@@ -1,14 +1,15 @@
 <script>
   export let nextAction = () => {}; // Function to handle the "Next" button
   export let prevAction = null; // Function to handle the "Previous" button, if provided
+  export let text = "Select"; // Name of the button
 </script>
 
-<div class="flex gap-1.5">
+<div class="flex max-w-xs mx-auto gap-1.5">
   <!-- Conditionally render the "Previous" button if `prevAction` is provided -->
   {#if prevAction}
     <button
       on:click={prevAction}
-      class="py-1 px-4 rounded-lg sm:rounded-xl inline-flex items-center justify-center shrink-0 text-xl bg-white ring-1 ring-slate-200 text-slate-900 hover:bg-slate-50 transition-all duration-300"
+      class="py-1 px-4 size-14 aspect-square rounded-lg sm:rounded-full flex items-center justify-center shrink-0 text-xl bg-white ring-1 ring-slate-200 text-slate-900 hover:bg-slate-50 transition-all duration-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +29,8 @@
   <!-- Main "Next" button -->
   <button
     on:click={nextAction}
-    class="px-3 py-2.5 flex-1 rounded-lg sm:rounded-xl text-lg bg-orange-600 font-semibold text-white hover:bg-orange-500 transition-all duration-300"
+    class="px-3 py-3 flex-1 active:scale-95 rounded-lg sm:rounded-full text-lg bg-orange-600 font-semibold text-white hover:bg-orange-500 transition-all duration-300"
   >
-    Next
+    {text}
   </button>
 </div>

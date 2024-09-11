@@ -2,13 +2,8 @@
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
 
-  import TimePill from "$lib/TimePill.svelte";
-  import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithStepper from "$lib/CardWithStepper.svelte";
-  import CardWithContent from "$lib/SingleSelectCardWithSlot.svelte";
-  import MultiSelectCard from "$lib/MultiSelectCard.svelte";
-  import CustomCard from "$lib/CustomCard.svelte";
-  import Calendar from "$lib/Calendar.svelte";
+  import HeadlineCard from "$lib/headlinecard.svelte";
+  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
 
   import { goto } from "$app/navigation";
 
@@ -67,15 +62,37 @@
     },
 
     {
-      title: "I need a cleaning service",
+      title: "Cleaning for 2 bedrooms",
       description: "2 cleaners • 72h guarantee",
       price: "£229",
     },
   ];
-  let cleaningSelectedOption = "I need a cleaning service";
+  let cleaningSelectedOption = "Cleaning for 2 bedrooms";
   let slotPosition = 1;
 
   let allCleaningOptions = ["Kitchen", "Bathrooms", "Bedrooms", "Common areas"];
+  const cleaningVariants = [
+    {
+      title: "Kitchen",
+      image:
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Bathrooms",
+      image:
+        "https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Bedrooms",
+      image:
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Common areas",
+      image:
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
 </script>
 
 <!-- Main layout -->
@@ -96,84 +113,44 @@
     nextAction={goToNextPage}
     prevAction={goToPreviousPage}
   >
-    {#if cleaningSelectedOption === "All-inclusive packing"}
-      <CustomCard
-        headline="Professional packing with all-inclusive materials"
-        subheadline="We will carefully pack all your items in one go in the safest way possible. You'll get unlimited packing materials included."
-        image="/img/packing/bighouse.svg"
-        altText="Packing service"
-      >
-        <div class="flex gap-1 flex-wrap">
-          {#each allCleaningOptions as option}
-            <span
-              class="flex bg-slate-100 ring-1 ring-slate-200 w-fit pl-1 pr-2 py-0.5 rounded-full text-sm gap-0.5 text-slate-800 items-center"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="size-4 text-orange-600"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              {option}</span
-            >
-          {/each}
-        </div>
-      </CustomCard>
-    {/if}
+    {#if cleaningSelectedOption === "No, thank you"}{/if}
 
-    {#if cleaningSelectedOption === "I need a cleaning service"}
-      <CustomCard
-        headline="From top to bottom, we’ll clean everywhere"
-        subheadline="All our standard cleanings include dusting and washing of all reachable surfaces, wiping the outside of kitchen appliances & cabinets, basic cleaning of the bathrooms, and vacuuming & mopping of all floors"
-        image="/img/cleaning-card.svg"
-        altText="Packing service"
-      >
-        <div class="flex gap-1 flex-wrap">
-          {#each allCleaningOptions as option}
-            <span
-              class="flex bg-slate-100 ring-1 ring-slate-200 w-fit pl-1 pr-2 py-0.5 rounded-full text-sm gap-0.5 text-slate-800 items-center"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="size-4 text-orange-600"
+    {#if cleaningSelectedOption === "Cleaning for 2 bedrooms"}
+      <div class="flex flex-col gap-4">
+        <p class="">
+          All our standard cleanings include dusting and washing of all
+          reachable surfaces, wiping the outside of kitchen appliances &
+          cabinets, basic cleaning of the bathrooms, and vacuuming & mopping of
+          all floors
+        </p>
+        <div class="flex gap-2 *:shrink-0 overflow-x-scroll disable-scrollbars">
+          {#each cleaningVariants as option}
+            <div class="relative">
+              <span
+                class="bg-slate-900/90 px-3 py-1 rounded-full text-sm text-white absolute top-2 flex items-center gap-1 pl-2 left-2"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              {option}</span
-            >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="size-5"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+
+                {option.title}</span
+              >
+              <img
+                src={option.image}
+                alt="Packing service"
+                class="h-40 object-cover rounded-lg"
+              />
+            </div>
           {/each}
-        </div>
-      </CustomCard>
-      <div class="flex flex-col mt-4 gap-4">
-        <div>
-          <h3 class="text-lg sm:text-xl mb-4 leading-tight font-semibold">
-            Cleaning on <span
-              class="font-semibold leading-tight text-xl text-orange-600"
-            >
-              Saturday, September 14
-            </span>
-          </h3>
-          <div class="*:mx-auto">
-            <Calendar />
-          </div>
-        </div>
-        <div>
-          <h3 class="text-lg sm:text-xl text-balance mb-4 font-semibold">
-            Estimated time of arrival of the cleaners <span
-              class="text-orange-600">between 9:00-15:00</span
-            >
-          </h3>
-          <TimePill withTabs={false} />
         </div>
       </div>
     {/if}
@@ -181,3 +158,15 @@
 
   <Footer />
 </div>
+
+<style>
+  .disable-scrollbars::-webkit-scrollbar {
+    background: transparent; /* Chrome/Safari/Webkit */
+    width: 0px;
+  }
+
+  .disable-scrollbars {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+</style>

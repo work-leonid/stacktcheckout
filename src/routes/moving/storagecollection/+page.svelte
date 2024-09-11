@@ -2,12 +2,10 @@
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
 
-  import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithStepper from "$lib/CardWithStepper.svelte";
-  import CardWithContent from "$lib/SingleSelectCardWithSlot.svelte";
-  import CustomCard from "$lib/CustomCard.svelte";
-  import SingleSelectCardWithoutSlot from "$lib/SingleSelectCardWithoutSlot.svelte";
-  import MonthPicker from "$lib/MonthPicker.svelte";
+  import HeadlineCard from "$lib/headlinecard.svelte";
+  import CardWithContent from "$lib/singleselectcardWithslot.svelte";
+  import SingleSelectCardWithoutSlot from "$lib/singleselectcardwithoutslot.svelte";
+  import MonthPicker from "$lib/monthpicker.svelte";
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
@@ -18,10 +16,10 @@
   let currentPrice = "Total £99";
 
   function goToNextPage() {
-    goto("/moving/cleaning");
+    goto("/moving/calendar");
   }
   function goToPreviousPage() {
-    goto("/moving/flat");
+    goto("/moving/cleaning");
   }
 
   const additionalServices = [
@@ -86,13 +84,14 @@
   const packingOptions = [
     {
       title: "No, thank you",
-      description: "I'll pack all my items myself",
+      description: "I don't need storage",
       price: "",
     },
 
     {
       title: "Storage collection",
-      description: "Get rid of unwanted items",
+      description:
+        "You can store as many of your belongings as you like in our secure storage spaces",
       price: "from £9",
     },
   ];
@@ -136,16 +135,16 @@
     prevAction={goToPreviousPage}
   >
     {#if packingSelectedOption === "Storage collection"}
-      <CustomCard
-        headline="The longer you store, the more you save"
-        subheadline=""
-        image="/img/packing/bighouse.svg"
-        altText="Packing service"
-      >
-        <MonthPicker options={dateOptions} />
-      </CustomCard>
       <div class="flex flex-col mt-4 gap-2">
-        <h3 class="text-xl font-semibold">How much space do you need?</h3>
+        <h2 class="text-lg font-semibold leading-tight">
+          The longer you store, the more you save
+        </h2>
+        <MonthPicker options={dateOptions} />
+      </div>
+      <div class="flex flex-col mt-4 gap-2">
+        <h3 class="text-lg font-semibold leading-tight">
+          How much space do you need?
+        </h3>
         <SingleSelectCardWithoutSlot
           options={storagePlaces}
           bind:monthSelectedOption

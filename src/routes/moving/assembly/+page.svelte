@@ -2,11 +2,10 @@
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
 
-  import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithStepper from "$lib/CardWithStepper.svelte";
-  import CardWithContent from "$lib/SingleSelectCardWithSlot.svelte";
-  import CustomCard from "$lib/CustomCard.svelte";
-  import Stepper from "$lib/Stepper.svelte";
+  import HeadlineCard from "$lib/headlinecard.svelte";
+  import CardWithStepper from "$lib/cardwithstepper.svelte";
+  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
+  import ImageDescription from "$lib/imagedescription.svelte";
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
@@ -81,17 +80,18 @@
       price: "",
     },
     {
-      title: "Assemble/Disassemble by separate furnitures",
+      title: "Assemble/Disassemble by separate furniture",
       description: "Select only what do you need",
       price: "from £23",
     },
     {
       title: "Assemble/Disassemble with fixed price",
-      description: "Only one piece of furniture",
-      price: "£41",
+      description: "Include 3 wardrobes, 3 beds, 1 desk",
+      price: "£549",
     },
   ];
-  let packingSelectedOption = "Assemble/Disassemble by separate furnitures";
+  let fixedPriceBenefits = ["3 wardrobes", "3 beds", "1 desk"];
+  let packingSelectedOption = "Assemble/Disassemble by separate furniture";
   let slotPosition = 1;
 </script>
 
@@ -113,15 +113,23 @@
     nextAction={goToNextPage}
     prevAction={goToPreviousPage}
   >
-    {#if packingSelectedOption === "Assemble/Disassemble by separate furnitures"}
-      <CustomCard
-        headline="Professional assembly/disassembly service"
-        subheadline="We will carefully assemble or disassemble your furniture or equipment, ensuring that it is done correctly and safely."
-        image="/img/packing/bighouse.svg"
-        altText="Packing service"
-      >
+    {#if packingSelectedOption === "Assemble/Disassemble by separate furniture"}
+      <div class="flex flex-col gap-4">
+        <ImageDescription
+          title="We will carefully assemble or disassemble your furniture or equipment, ensuring that it is done correctly and safely."
+          image="https://plus.unsplash.com/premium_photo-1661292184470-5ae807de40f5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
+        />
         <CardWithStepper options={assemblyItems} />
-      </CustomCard>
+      </div>
+    {/if}
+    {#if packingSelectedOption === "Assemble/Disassemble with fixed price"}
+      <div class="flex flex-col gap-4">
+        <ImageDescription
+          title="We will carefully assemble or disassemble your furniture or equipment, ensuring that it is done correctly and safely."
+          image="https://plus.unsplash.com/premium_photo-1664303777059-cab540d722dd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          benefits={fixedPriceBenefits}
+        />
+      </div>
     {/if}
   </CardWithContent>
 

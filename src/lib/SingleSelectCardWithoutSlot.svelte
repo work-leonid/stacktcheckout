@@ -8,22 +8,22 @@
   }
 </script>
 
-<div class="grid sm:grid-cols-1 gap-2">
+<div class="grid sm:grid-cols-2 gap-2">
   {#each options as option}
     <div
-      class={`p-3 ring-1  cursor-pointer transition-all duration-300 rounded-2xl ${
+      class={`p-3 md:p-4 border group cursor-pointer transition-all duration-300 rounded-2xl ${
         selectedOption === option.title
-          ? "bg-white ring-1 ring-orange-500"
-          : "bg-white hover:ring-orange-500 ring-slate-300"
+          ? "bg-orange-50 border-orange-500 ring-4 ring-orange-500/20"
+          : "bg-white  border-slate-300 hover:border-orange-500 ring-0"
       }`}
       on:click={() => selectOption(option)}
     >
-      <div class="flex justify-between">
+      <div class="flex flex-col justify-between">
         {#if option.image}
           <img
             src={`/img/${option.image}`}
             alt="Wardrobe"
-            class="size-20 sm:size-32"
+            class="size-20 group-hover:scale-105 transition-all duration-300 sm:mb-2 sm:w-full sm:h-auto"
           />
         {/if}
 

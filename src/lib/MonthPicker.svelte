@@ -1,6 +1,6 @@
 <script>
   export let options = [];
-  export let selectedOption = null; // Bind a single selected option
+  export let selectedOption = options.length > 1 ? options[1].title : null; // Default to second option if it exists
 
   // Handle single option selection
   function selectOption(option) {
@@ -11,7 +11,7 @@
 <div class="grid grid-cols-3 gap-1">
   {#each options as option}
     <div
-      class={`p-3 border relative cursor-pointer transition-all duration-300 rounded-2xl ${
+      class={`p-3 border relative cursor-pointer transition-all duration-300 rounded-lg ${
         selectedOption === option.title
           ? "bg-orange-50 border-orange-500"
           : "bg-white border-gray-300"

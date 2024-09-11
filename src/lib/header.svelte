@@ -9,14 +9,12 @@
 
 <header class="flex justify-between items-start">
   <div class="">
-    <span class="font-semibold leading-none text-sm text-orange-600"
-      >Moving</span
-    >
+    <span class="font-semibold leading-none text-sm">Moving</span>
 
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 144 32"
-      class="w-24 mb-1"
+      class="w-28 mb-1"
       fill="none"
     >
       <path
