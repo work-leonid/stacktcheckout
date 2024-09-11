@@ -9,7 +9,6 @@
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
-  let totalPrice = 0; // Initialize total price
   $: totalPrice = itemCount === 0 ? 0 : 179 + (itemCount - 1) * 42;
 
   let multiselectedOptions = [];
