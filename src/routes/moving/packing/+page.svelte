@@ -2,11 +2,11 @@
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
 
-  import ImageDescription from "$lib/imagedescription.svelte";
+  import ImageDescription from "$lib/ImageDescription.svelte";
   import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
+  import SingleSelectCardWithSlot from "$lib/SingleSelectCardWithSlot.svelte";
   import PackingAdditionalServices from "$lib/packingadditional.svelte";
-  import Stepper from "$lib/stepper.svelte";
+  import Stepper from "$lib/Stepper.svelte";
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
@@ -82,7 +82,7 @@
     {benefits}
   />
 
-  <CardWithContent
+  <SingleSelectCardWithSlot
     options={packingOptions}
     bind:selectedOption={packingSelectedOption}
     bind:slotPosition
@@ -144,7 +144,7 @@
     {#if packingSelectedOption === "Additional services"}
       <PackingAdditionalServices />
     {/if}
-  </CardWithContent>
+  </SingleSelectCardWithSlot>
 
   <Footer price={currentPrice} />
 </div>

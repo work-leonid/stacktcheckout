@@ -5,10 +5,10 @@
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
-  import CalendarWithTimeIntervals from "$lib/calendarwithtimeintervals.svelte";
-  import Simplewrapper from "$lib/simplewrapper.svelte";
-  import Calendar from "$lib/calendar.svelte";
-  import Timepill from "$lib/timepill.svelte";
+  import CalendarWithTimeIntervals from "$lib/CalendarWithTimeIntervals.svelte";
+  import Simplewrapper from "$lib/SimpleWrapper.svelte";
+  import Calendar from "$lib/Calendar.svelte";
+  import Timepill from "$lib/Timepill.svelte";
 
   let itemCount = 1; // Track the stepper count
   let totalPrice = 0; // Initialize total price

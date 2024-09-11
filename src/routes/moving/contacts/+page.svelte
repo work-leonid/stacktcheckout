@@ -1,11 +1,11 @@
 <script>
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
-  import NavBtns from "$lib/navbtns.svelte";
+  import NavBtns from "$lib/NavBtns.svelte";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
-  import Simplewrapper from "$lib/simplewrapper.svelte";
+  import SimpleWrapper from "$lib/SimpleWrapper.svelte";
 
   let itemCount = 1; // Track the stepper count
   let totalPrice = 0; // Initialize total price
@@ -34,7 +34,7 @@
   />
 
   <div class="flex flex-col gap-4">
-    <Simplewrapper
+    <SimpleWrapper
       title="Our customer service team will contact you to finalise the details of your order"
       subheadline="If we are unable to reach you, we might have to reschedule or, in some instances, cancel the service. We want to avoid any inconvenience or potential additional costs for you."
     >
@@ -60,7 +60,7 @@
           </label>
         </div>
       </div>
-    </Simplewrapper>
+    </SimpleWrapper>
 
     <Footer />
     <div>

@@ -4,9 +4,9 @@
   import { goto } from "$app/navigation";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import MultiSelectCard from "$lib/multiselectcard.svelte";
-  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
-  import ImageDescription from "$lib/imagedescription.svelte";
+  import MultiSelectCard from "$lib/MultiSelectCard.svelte";
+  import SingleSelectCardWithSlot from "$lib/SingleSelectCardWithSlot.svelte";
+  import ImageDescription from "$lib/ImageDescription.svelte";
 
   let multiselectedOptions = []; // Track the selected options (multi-select)
   let currentPrice = "Moving total £169";
@@ -102,7 +102,7 @@
     image="/img/moving.svg"
   />
 
-  <CardWithContent
+  <SingleSelectCardWithSlot
     nextAction={goToNextPage}
     options={flatOptions}
     bind:selectedOption
@@ -155,7 +155,7 @@
       </p>
       <MultiSelectCard options={multiselectOptions} bind:multiselectedOptions />
     {/if}
-  </CardWithContent>
+  </SingleSelectCardWithSlot>
 
   <Footer price={currentPrice} />
 </div>

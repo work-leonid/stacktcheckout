@@ -3,9 +3,9 @@
   import Footer from "$lib/footer.svelte";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithContent from "$lib/singleselectcardWithslot.svelte";
-  import SingleSelectCardWithoutSlot from "$lib/singleselectcardwithoutslot.svelte";
-  import MonthPicker from "$lib/monthpicker.svelte";
+  import SingleSelectCardWithSlot from "$lib/SingleSelectCardWithSlot.svelte";
+  import SingleSelectCardWithoutSlot from "$lib/SingleSelectCardWithoutSlot.svelte";
+  import MonthPicker from "$lib/MonthPicker.svelte";
   import { goto } from "$app/navigation";
 
   let itemCount = 1; // Track the stepper count
@@ -127,7 +127,7 @@
     altText="Packing service"
   />
 
-  <CardWithContent
+  <SingleSelectCardWithSlot
     options={packingOptions}
     bind:selectedOption={packingSelectedOption}
     bind:slotPosition
@@ -151,7 +151,7 @@
         />
       </div>
     {/if}
-  </CardWithContent>
+  </SingleSelectCardWithSlot>
 
   <Footer price={currentPrice} />
 </div>

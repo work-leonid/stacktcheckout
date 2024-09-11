@@ -3,7 +3,7 @@
   import Footer from "$lib/footer.svelte";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
-  import CardWithContent from "$lib/singleselectcardwithslot.svelte";
+  import SingleSelectCardWithSlot from "$lib/SingleSelectCardWithSlot.svelte";
 
   import { goto } from "$app/navigation";
 
@@ -106,7 +106,7 @@
     altText="Stackt"
   />
 
-  <CardWithContent
+  <SingleSelectCardWithSlot
     options={cleaningOptions}
     bind:selectedOption={cleaningSelectedOption}
     bind:slotPosition
@@ -154,7 +154,7 @@
         </div>
       </div>
     {/if}
-  </CardWithContent>
+  </SingleSelectCardWithSlot>
 
   <Footer />
 </div>
