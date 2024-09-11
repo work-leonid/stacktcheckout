@@ -3,7 +3,7 @@
   import Footer from "$lib/footer.svelte";
 
   import ImageDescription from "$lib/imagedescription.svelte";
-  import HeadlineCard from "$lib/headlinecard.svelte";
+  import HeadlineCard from "$lib/HeadlineCard.svelte";
   import CardWithContent from "$lib/singleselectcardwithslot.svelte";
   import PackingAdditionalServices from "$lib/packingadditional.svelte";
   import Stepper from "$lib/stepper.svelte";

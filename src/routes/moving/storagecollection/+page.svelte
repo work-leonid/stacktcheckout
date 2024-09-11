@@ -2,7 +2,7 @@
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
 
-  import HeadlineCard from "$lib/headlinecard.svelte";
+  import HeadlineCard from "$lib/HeadlineCard.svelte";
   import CardWithContent from "$lib/singleselectcardWithslot.svelte";
   import SingleSelectCardWithoutSlot from "$lib/singleselectcardwithoutslot.svelte";
   import MonthPicker from "$lib/monthpicker.svelte";

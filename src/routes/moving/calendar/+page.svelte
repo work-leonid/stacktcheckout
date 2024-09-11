@@ -3,7 +3,7 @@
   import Footer from "$lib/footer.svelte";
   import NavBtns from "$lib/navbtns.svelte";
 
-  import HeadlineCard from "$lib/headlinecard.svelte";
+  import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
   import CalendarWithTimeIntervals from "$lib/calendarwithtimeintervals.svelte";
   import Simplewrapper from "$lib/simplewrapper.svelte";

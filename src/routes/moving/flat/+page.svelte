@@ -3,7 +3,7 @@
   import Footer from "$lib/footer.svelte";
   import { goto } from "$app/navigation";
 
-  import HeadlineCard from "$lib/headlinecard.svelte";
+  import HeadlineCard from "$lib/HeadlineCard.svelte";
   import MultiSelectCard from "$lib/multiselectcard.svelte";
   import CardWithContent from "$lib/singleselectcardwithslot.svelte";
   import ImageDescription from "$lib/imagedescription.svelte";
