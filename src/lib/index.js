@@ -7,3 +7,5 @@ export { default as HeadlineCard } from "./HeadlineCard.svelte";
 export { default as ImageDescription } from "./ImageDescription.svelte";
 
 export { default as Timepill } from "./TimePill.svelte";
+
+export { default as Simplewrapper } from "./SimpleWrapper.svelte";
