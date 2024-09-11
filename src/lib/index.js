@@ -2,4 +2,3 @@
 
 // Export components for use in multiple routes
 export { default as StepperCard } from "./steppercard.svelte";
-export { default as NavBtns } from "./navbtns.svelte";
