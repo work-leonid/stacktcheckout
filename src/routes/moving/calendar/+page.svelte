@@ -6,7 +6,7 @@
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
   import CalendarWithTimeIntervals from "$lib/CalendarWithTimeIntervals.svelte";
-  import Simplewrapper from "$lib/SimpleWrapper.svelte";
+  import SimpleWrapper from "$lib/SimpleWrapper.svelte";
   import Calendar from "$lib/Calendar.svelte";
   import Timepill from "$lib/TimePill.svelte";
 
@@ -38,13 +38,13 @@
   />
 
   <div class="flex flex-col gap-4">
-    <Simplewrapper title="When you want to move?">
+    <SimpleWrapper title="When you want to move?">
       <div class="max-w-sm mx-auto">
         <CalendarWithTimeIntervals />
       </div>
-    </Simplewrapper>
+    </SimpleWrapper>
 
-    <Simplewrapper
+    <SimpleWrapper
       title="End-of-tentancy cleaning"
       subheadline="We could clean only empty rooms."
     >
@@ -52,7 +52,7 @@
         <Calendar />
         <Timepill withTabs={false} />
       </div>
-    </Simplewrapper>
+    </SimpleWrapper>
 
     <div>
       <NavBtns nextAction={goToNextPage} prevAction={goToPreviousPage} />
