@@ -1,7 +1,7 @@
 <script>
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
-  import NavBtns from "$lib/navbtns.svelte";
+  import NavBtns from "$lib/NavBtns.svelte";
 
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import { goto } from "$app/navigation";
