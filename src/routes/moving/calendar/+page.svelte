@@ -8,7 +8,7 @@
   import CalendarWithTimeIntervals from "$lib/CalendarWithTimeIntervals.svelte";
   import Simplewrapper from "$lib/SimpleWrapper.svelte";
   import Calendar from "$lib/Calendar.svelte";
-  import Timepill from "$lib/Timepill.svelte";
+  import Timepill from "$lib/TimePill.svelte";
 
   let itemCount = 1; // Track the stepper count
   let totalPrice = 0; // Initialize total price
