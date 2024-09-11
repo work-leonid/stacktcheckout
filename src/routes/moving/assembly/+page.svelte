@@ -1,12 +1,11 @@
 <script>
   import Header from "$lib/header.svelte";
   import Footer from "$lib/footer.svelte";
-
+  import { goto } from "$app/navigation";
   import HeadlineCard from "$lib/HeadlineCard.svelte";
   import CardWithStepper from "$lib/CardWithStepper.svelte";
   import SingleSelectCardWithSlot from "$lib/SingleSelectCardWithSlot.svelte";
-  import ImageDescription from "$lib/ImageDescription.svelte";
-  import { goto } from "$app/navigation";
+  import ImageDescription from "$lib/imagedescription.svelte";
 
   let itemCount = 1; // Track the stepper count
   $: totalPrice = itemCount === 0 ? 0 : 179 + (itemCount - 1) * 42;
